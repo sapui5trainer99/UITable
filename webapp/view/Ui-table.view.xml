@@ -1,0 +1,70 @@
+<mvc:View controllerName="uitable.uitable.controller.Ui-table"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+   xmlns="sap.m" xmlns:ui="sap.ui.table">
+	<App>
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+					<ui:Table  id="uiTable" rowSelectionChange="onSelectRow" rowsUpdated="onUpdateRows" visibleRowCountMode="Interactive" visibleRowCount="10" fixedColumnCount="2">
+						<ui:extension>
+							<OverflowToolbar>
+								<ToolbarSpacer/>
+							<SearchField width="30%" liveChange="onSearchUITable"></SearchField>
+						</OverflowToolbar>
+						</ui:extension>
+						<ui:columns>
+							<ui:Column width="10rem">
+								<Label text="ProductID"></Label>
+								<ui:template>
+									<Text text="{ProductID}"></Text>
+								</ui:template>
+							</ui:Column >
+								<ui:Column width="20rem" id="ProductName" sortProperty="ProductName">
+								<Label text="ProductName"></Label>
+								<ui:template>
+									<Text text="{ProductName}"></Text>
+								</ui:template>
+							</ui:Column>
+								<ui:Column width="10rem">
+								<Label text="SupplierID"></Label>
+								<ui:template>
+									<Text text="{SupplierID}"></Text>
+								</ui:template>
+							</ui:Column >
+								<ui:Column width="10rem">
+								<Label text="CategoryID"></Label>
+								<ui:template>
+									<Text text="{CategoryID}"></Text>
+								</ui:template>
+							</ui:Column>
+								<ui:Column width="10rem">
+								<Label text="QuantityPerUnit"></Label>
+								<ui:template>
+									<Text text="{QuantityPerUnit}"></Text>
+								</ui:template>
+							</ui:Column>
+								<ui:Column width="10rem">
+								<Label text="UnitPrice"></Label>
+								<ui:template>
+									<Text text="{UnitPrice}"></Text>
+								</ui:template>
+							</ui:Column>
+								<ui:Column width="10rem">
+								<Label text="UnitsInStock"></Label>
+								<ui:template>
+									<ObjectNumber number="{UnitsInStock}" state="{parts:[{path:'UnitsInStock'},{path:'UnitsOnOrder'}],formatter:'.FormatStock'}"></ObjectNumber>
+								</ui:template>
+							</ui:Column>
+								<ui:Column width="10rem">
+								<Label text="UnitsOnOrder"></Label>
+								<ui:template>
+										<Input value="{UnitsOnOrder}" editable="{enbl}" liveChange="onCangeOrder"></Input>
+								</ui:template>
+							</ui:Column>
+						</ui:columns>
+					</ui:Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
